@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page">
+        <div class="container">
+            <div class="form-box">
+                <h1>Login</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="goToRegister()">Don't have an account? Register here</a>
+                    <a href="#" onclick="goToForgotPassword()">Forgot password?</a>
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <div id="loginSuccess" class="success-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="registerPage" class="page hidden">
+        <div class="container">
+            <div class="form-box">
+                <h1>Register</h1>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Name:</label>
+                        <input type="text" id="registerName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email:</label>
+                        <input type="email" id="registerEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password:</label>
+                        <input type="password" id="registerPassword" name="password" required>
+                        <small>Password must be at least 6 characters long</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password:</label>
+                        <input type="password" id="registerConfirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="goToLogin()">Already have an account? Login</a>
+                </div>
+                <div id="registerError" class="error-message"></div>
+                <div id="registerSuccess" class="success-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Page -->
+    <div id="forgotPasswordPage" class="page hidden">
+        <div class="container">
+            <div class="form-box">
+                <h1>Forgot Password</h1>
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="forgotEmail">Enter your email:</label>
+                        <input type="email" id="forgotEmail" name="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="goToLogin()">Back to Login</a>
+                </div>
+                <div id="forgotError" class="error-message"></div>
+                <div id="forgotSuccess" class="success-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Password Page -->
+    <div id="resetPasswordPage" class="page hidden">
+        <div class="container">
+            <div class="form-box">
+                <h1>Reset Password</h1>
+                <form id="resetPasswordForm">
+                    <div class="form-group">
+                        <label for="resetPassword">New Password:</label>
+                        <input type="password" id="resetPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resetConfirmPassword">Confirm Password:</label>
+                        <input type="password" id="resetConfirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Password</button>
+                </form>
+                <div class="form-links">
+                    <a href="#" onclick="goToLogin()">Back to Login</a>
+                </div>
+                <div id="resetError" class="error-message"></div>
+                <div id="resetSuccess" class="success-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page hidden">
+        <div class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">Welcome</div>
+                <button onclick="logout()" class="btn btn-danger">Logout</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="dashboard-box">
+                <h1>Welcome, <span id="userName"></span>!</h1>
+                <p>You have successfully logged in.</p>
+                <div class="user-info">
+                    <h2>User Information:</h2>
+                    <p><strong>Name:</strong> <span id="userNameDisplay"></span></p>
+                    <p><strong>Email:</strong> <span id="userEmailDisplay"></span></p>
+                </div>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
